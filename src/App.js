@@ -12,7 +12,8 @@ const App = () => {
     const [answers, setAnswers] = useState([])
 
     useEffect(() => {
-        fetch('http://18.196.113.223:8080/questions', {credentials: "include"})
+        //fetch('http://18.196.113.223:8080/questions', {credentials: "include"})
+        fetch('http://localhost:8080/questions', {credentials: "include"})
             .then((res) => {
                 return res.json()
             })
@@ -40,7 +41,8 @@ const App = () => {
                 }} />
             })}
             <Button label="Check answers" onClick={() => {
-                fetch('http://18.196.113.223:8080/checkanswers', {
+                // fetch('http://18.196.113.223:8080/checkanswers', {
+                    fetch('http://localhost:8080/checkanswers', {                    
                     credentials: "include",
                     method: 'POST',
                     body: JSON.stringify(answers),
